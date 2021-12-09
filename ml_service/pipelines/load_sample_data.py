@@ -13,6 +13,7 @@ def create_sample_data_csv(file_name: str = "diabetes.csv",
         columns=sample_data.feature_names)
     if not for_scoring:
         df['Y'] = sample_data.target
+    data = df[:342]
     # Hard code to diabetes so we fail fast if the project has been
     # bootstrapped.
-    df.to_csv(file_name, index=False)
+    data.to_csv(file_name, index=False)
