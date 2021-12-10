@@ -160,6 +160,7 @@ def main():
 
 def model_already_registered(model_name, exp, run_id):
     model_list = AMLModel.list(exp.workspace, name=model_name, run_id=run_id)
+    print('model list*************', model_list)
     if len(model_list) >= 1:
         e = ("Model name:", model_name, "in workspace",
              exp.workspace, "with run_id ", run_id, "is already registered.")
