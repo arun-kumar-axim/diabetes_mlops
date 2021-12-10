@@ -100,7 +100,6 @@ if (run_id == 'amlcompute'):
     run_id = run.parent.id
 model_name = args.model_name
 metric_eval = "mse"
-print('model name*****************', model_name)
 allow_run_cancel = args.allow_run_cancel
 # Parameterize the matrices on which the models should be compared
 # Add golden data set on which all the model performance can be evaluated
@@ -113,11 +112,8 @@ try:
                 tag_name=tag_name,
                 tag_value=exp.name,
                 aml_workspace=ws)
-    print('model**********', model is not None)
     if (model is not None):
         production_model_mse = 10000
-        print('metric eval******', metric_eval)
-        print('metrics********', model.tags)
         if (metric_eval in model.tags):
             production_model_mse = float(model.tags[metric_eval])
         new_model_mse = float(run.parent.get_metrics().get(metric_eval))
