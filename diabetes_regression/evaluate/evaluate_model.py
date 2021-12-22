@@ -133,7 +133,7 @@ try:
                 )
             )
 
-         if new_model_mse is not None:
+        if new_model_mse is not None:
            if (new_model_mse < production_model_mse):
                print("New trained model performs better, "
                      "thus it should be registered")
